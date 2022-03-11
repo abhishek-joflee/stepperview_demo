@@ -38,28 +38,47 @@ class MyHomePage extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Row(
-                children: const [
-                  Spacer(),
-                  RightCheckMarkContainer(),
-                  Expanded(child: HorizontalContainer()),
-                  NumberContainer(n: 2),
-                  Expanded(child: HorizontalContainer()),
-                  NumberContainer(n: 3),
-                  Spacer(),
+                children: [
+                  Expanded(
+                      child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Divider(
+                              height: 3,
+                              color: Colors.green,
+                            ),
+                          ),
+                          RightCheckMarkContainer(),
+                          Expanded(
+                            child: Divider(
+                              height: 3,
+                              color: Colors.green,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                          color: Colors.red,
+                          child: Text('Simple..... Simple Simple.........'))
+                    ],
+                  )),
+                  Expanded(
+                      child: Column(
+                    children: [
+                      NumberContainer(n: 2),
+                    ],
+                  )),
+                  Expanded(
+                      child: Column(
+                    children: [
+                      NumberContainer(n: 3),
+                    ],
+                  )),
                 ],
               ),
               _sizedBox,
-              Row(
-                children: const [
-                  Spacer(),
-                  TextContainer(text: "Personal Details"),
-                  Spacer(),
-                  TextContainer(text: "Joining Details"),
-                  Spacer(),
-                  TextContainer(text: "Employee Permission"),
-                  Spacer(),
-                ],
-              ),
             ],
           ),
         ),
@@ -81,8 +100,8 @@ class NumberContainer extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          height: 100,
-          width: 100,
+          height: 50,
+          width: 50,
           alignment: Alignment.center,
           decoration: const BoxDecoration(
             color: Colors.blue,
@@ -92,7 +111,7 @@ class NumberContainer extends StatelessWidget {
             "$n",
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 50,
+              fontSize: 16,
             ),
           ),
         ),
@@ -126,7 +145,7 @@ class HorizontalContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 5,
+      height: 3,
       color: Colors.blue,
     );
   }
@@ -138,14 +157,14 @@ class RightCheckMarkContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(12.0),
+      padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        border: Border.all(width: 5.0, color: Colors.blue),
+        border: Border.all(width: 3.0, color: Colors.blue),
       ),
       child: Container(
-        height: 100,
-        width: 100,
+        height: 50,
+        width: 50,
         alignment: Alignment.center,
         decoration: const BoxDecoration(
           color: Colors.blue,
@@ -153,7 +172,7 @@ class RightCheckMarkContainer extends StatelessWidget {
         ),
         child: const Icon(
           CupertinoIcons.check_mark,
-          size: 50,
+          size: 30,
           color: Colors.white,
         ),
       ),
